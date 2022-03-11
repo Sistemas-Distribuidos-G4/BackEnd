@@ -1,7 +1,7 @@
 // User routes
 const express = require('express');
 const router = express.Router();
-const userController = require('../src/controllers/userController');
+const userController = require('../controllers/userController');
  
 // api/users
 router.post('/', userController.createUser);
@@ -12,4 +12,4 @@ router.get('/usersproject', userController.UsersProject);
 router.put('/:id', userController.updateUser);
 router.get('/:id', userController.getUser);
 router.delete('/:id', userController.deleteUser);
-module.exports = router; 
+module.exports = router;    

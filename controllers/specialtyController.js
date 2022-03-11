@@ -1,4 +1,4 @@
-const Specialty = require("../src/models/Specialty");
+const Specialty = require("../models/Specialty");
 
 
 exports.createSpecialty = async (req, res) => {
@@ -133,3 +133,4 @@ exports.deleteSpecialty = async (req, res) => {
         res.status(500).send('Error');
     }
 }
+

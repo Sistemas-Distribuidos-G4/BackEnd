@@ -1,4 +1,4 @@
-const Patient = require("../src/models/Patient");
+const Patient = require("../models/Patient");
 
 exports.createPatient = async (req, res) => {
 
@@ -197,3 +197,4 @@ exports.deletePatient = async (req, res) => {
         res.status(500).send('Error');
     }
 }
+

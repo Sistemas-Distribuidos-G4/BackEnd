@@ -1,4 +1,4 @@
-const User = require("../src/models/User");
+const User = require("../models/User");
 
 
 exports.createUser = async (req, res) => {
@@ -172,3 +172,4 @@ exports.deleteUser = async (req, res) => {
         res.status(500).send('Error');
     }
 }
+
