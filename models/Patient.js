@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const PatientSchema = mongoose.Schema({
     dni: {
-        type: String,
+        type: Number,
         required: true
     },
     gender: {
@@ -13,7 +13,11 @@ const PatientSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    last_name: {
+    lastname_p: {
+        type: String,
+        required: true
+    },
+    lastname_m: {
         type: String,
         required: true
     },
@@ -25,8 +29,16 @@ const PatientSchema = mongoose.Schema({
         type: Date,
         required: true
     },
-    status: {
+    ubigeo: {
         type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    status: {
+        type: Boolean,
         required:true
     },
     created_date: {
