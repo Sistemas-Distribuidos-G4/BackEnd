@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Rol = require('./Role');
+const bcrypt = require('bcrypt');
 
 const UserSchema = mongoose.Schema({
     username: {
@@ -47,5 +48,14 @@ const UserSchema = mongoose.Schema({
         default: Date.now()
     }
 });
+
+UserSchema.statics.encryptPassword = async (password) => {
+    const salt = await bcrypt.genSalt(10);
+    return await bcrypt.hash(password, salt);
+  };
+
+UserSchema.statics.comparePassword = async (password, receivedPassword) => {
+    return await bcrypt.compare(password, receivedPassword)
+  }
 
 module.exports = mongoose.model('User', UserSchema);

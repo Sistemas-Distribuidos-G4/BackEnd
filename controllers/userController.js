@@ -1,4 +1,6 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
+
 
 
 exports.createUser = async (req, res) => {
@@ -7,7 +9,7 @@ exports.createUser = async (req, res) => {
         let user;
         // User creation
         user = new User(req.body);
-
+        user.password = await User.encryptPassword(user.password);
         await user.save();
         res.send(user);
         
