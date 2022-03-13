@@ -15,7 +15,11 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    last_name: {
+    lastname_p: {
+        type: String,
+        required: true
+    },
+    lastname_m: {
         type: String,
         required: true
     },

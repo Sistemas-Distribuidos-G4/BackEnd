@@ -111,7 +111,7 @@ exports.UsersLookupSpecialties = async (req, res) => {
 exports.updateUser = async (req, res) => {
 
     try {
-        const { username, password, name, last_name, email, phone, specialty, role , status, created_date, updated_date } = req.body;
+        const { username, password, name, lastname_p, lastname_m, email, phone, specialty, role , status, created_date, updated_date } = req.body;
         let user = await User.findById(req.params.id);
 
         if(!user) {
@@ -119,9 +119,10 @@ exports.updateUser = async (req, res) => {
         }
 
         user.username = username;
-        user.password = password;
+        user.password = await User.encryptPassword(user.password);
         user.name = name;
-        user.last_name = last_name;
+        user.lastname_p = lastname_p;
+        user.lastname_m = lastname_m;
         user.email = email;
         user.phone = phone;
         user.specialty = specialty;

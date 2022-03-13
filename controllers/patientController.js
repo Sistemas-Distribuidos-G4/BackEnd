@@ -138,20 +138,23 @@ exports.PatientsProject = async (req, res) => {
 exports.updatePatient = async (req, res) => {
 
     try {
-        const { dni_pac, genero_pac, nombre_pac, apellido_pac,celular_pac,fechanac_pac, created_date } = req.body;
+        const { name, lastname_p, lastname_m, email, phone, birthday, ubigeo, status, created_date, updated_date } = req.body;
         let patient = await Patient.findById(req.params.id);
 
         if(!patient) {
             res.status(404).json({ msg: 'Patient does not exist' })
         }
 
-        patient.dni_pac = dni_pac;
-        patient.genero_pac = genero_pac;
-        patient.nombre_pac = nombre_pac;
-        patient.apellido_pac = apellido_pac;
-        patient.celular_pac=celular_pac;
-        patient.fechanac_pac=fechanac_pac;
+        patient.name = name;
+        patient.lastname_p = lastname_p;
+        patient.lastname_m = lastname_m;
+        patient.email = email;
+        patient.phone = phone;
+        patient.birthday = birthday;
+        patient.ubigeo = ubigeo;
+        patient.status = status;
         patient.created_date = created_date;
+        patient.updated_date = updated_date;
 
         patient = await Patient.findOneAndUpdate({ _id: req.params.id },patient, { new: true} )
         res.json(patient);
