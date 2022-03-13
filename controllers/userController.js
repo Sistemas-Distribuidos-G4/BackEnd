@@ -119,7 +119,7 @@ exports.updateUser = async (req, res) => {
         }
 
         user.username = username;
-        user.password = await User.encryptPassword(user.password);
+        user.password = await User.encryptPassword(password);
         user.name = name;
         user.lastname_p = lastname_p;
         user.lastname_m = lastname_m;
