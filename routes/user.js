@@ -11,6 +11,6 @@ router.get('/userslookupspecialties', userController.UsersLookupSpecialties);
 router.get('/usersproject', userController.UsersProject);
 router.put('/:id', userController.updateUser);
 router.get('/:id', userController.getUser);
-router.get('/:dni', userController.getUserByDni);
+router.get('/dni/:dni', userController.getUserByDni);
 router.delete('/:id', userController.deleteUser);
 module.exports = router;    
