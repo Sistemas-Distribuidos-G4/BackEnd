@@ -184,6 +184,23 @@ exports.getPatient = async (req, res) => {
     }
 }
 
+exports.getPatientByDni = async (req, res) => {
+
+    try {
+        let patient = await Patient.findOne({dni: req.params.dni});
+
+        if(!patient) {
+            res.status(404).json({ msg: 'Patient does not exist' })
+        }
+       
+        res.json(patient);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error');
+    }
+}
+
 exports.deletePatient = async (req, res) => {
 
     try {
