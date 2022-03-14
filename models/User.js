@@ -3,6 +3,10 @@ const Rol = require('./Role');
 const bcrypt = require('bcrypt');
 
 const UserSchema = mongoose.Schema({
+    dni: {
+        type: Number,
+        required: true
+    },
     username: {
         type: String,
         required: true

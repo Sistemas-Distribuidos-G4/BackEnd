@@ -111,13 +111,14 @@ exports.UsersLookupSpecialties = async (req, res) => {
 exports.updateUser = async (req, res) => {
 
     try {
-        const { username, password, name, lastname_p, lastname_m, email, phone, specialty, role , status, created_date, updated_date } = req.body;
+        const { dni, username, password, name, lastname_p, lastname_m, email, phone, specialty, role , status, created_date, updated_date } = req.body;
         let user = await User.findById(req.params.id);
 
         if(!user) {
             res.status(404).json({ msg: 'User does not exist' })
         }
 
+        user.dni = dni;
         user.username = username;
         user.password = await User.encryptPassword(password);
         user.name = name;
@@ -145,6 +146,23 @@ exports.getUser = async (req, res) => {
 
     try {
         let user = await User.findById(req.params.id);
+
+        if(!user) {
+            res.status(404).json({ msg: 'User does not exist' })
+        }
+       
+        res.json(user);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error');
+    }
+}
+
+exports.getUserByDni = async (req, res) => {
+
+    try {
+        let user = await User.findOne({dni: req.params.dni});
 
         if(!user) {
             res.status(404).json({ msg: 'User does not exist' })

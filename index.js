@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 require('dotenv').config()
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3000
 app.set('json spaces', 2)
 //middleware
 app.use(express.json())
