@@ -2,12 +2,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bcrypt = require('bcrypt')
+const cors = require('cors')
 require('dotenv').config()
 
 const app = express()
 const port = process.env.PORT || 3000
 app.set('json spaces', 2)
 //middleware
+app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
 
