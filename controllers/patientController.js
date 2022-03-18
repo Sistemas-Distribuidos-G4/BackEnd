@@ -16,6 +16,29 @@ exports.createPatient = async (req, res) => {
         res.status(500).send('Error');
     }
 }
+exports.traupdPatient = async (req, res) => {
+    try {
+        const session= await startSession();
+        session.startTransaction();
+        const status = req.body.status;
+        let patient = await Patient.findById(req.params.id);
+       
+        if(!patient) {
+            res.status(404).json({ msg: 'Patient does not exist' })
+        }
+        patient.status =status;
+       await Patient.findOneAndUpdate(({ _id: req.params.id },patient,session,{new:true} ))
+       await session.commitTransaction();
+       session.endSession();
+       res.json(patient);
+        
+    } catch (error) {
+        await session.abortTransaction();
+        session.endSession();
+        console.log(error);
+        res.status(500).send('Error');
+    }
+}
 
 //get patients con find
 exports.getPatients = async (req, res) => {
