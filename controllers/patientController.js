@@ -40,6 +40,11 @@ exports.traupdPatient = async (req, res) => {
     }
 }
 
+
+
+
+
+
 //get patients con find
 exports.getPatients = async (req, res) => {
 
