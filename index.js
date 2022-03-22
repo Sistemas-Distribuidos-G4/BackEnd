@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 mongoose.connect(process.env.MONGODB_PRUEBA).then(() => {
-    console.log('Conected to mongo capos')
+    console.log('Conected to mongoDB')
 }).catch((error) => {
     console.error(error)
 })
