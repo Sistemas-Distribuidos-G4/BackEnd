@@ -5,7 +5,7 @@ const patientController = require('../controllers/patientController');
 
 // api/patients
 router.get('/', patientController.getPatients);
-router.put('/:id', patientController.updatePatient);
+// router.put('/:id', patientController.updatePatient);
 router.put('/:id', patientController.traupdPatient);
 router.post('/', patientController.createPatient);
 router.get('/', patientController.getPatients);
@@ -16,6 +16,5 @@ router.get('/patientsmatchm',patientController.patientsMatchM);
 router.get('/pacm', patientController.getPatientsM);
 router.get('/:id', patientController.getPatient);
 router.get('/dni/:dni', patientController.getPatientByDni);
-// router.put('/:id', patientController.updatePatient);
 router.delete('/:id', patientController.deletePatient);
 module.exports = router; 
