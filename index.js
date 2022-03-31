@@ -25,6 +25,8 @@ app.use('/api/patients', require('./routes/patient'));
 app.use('/api/roles', require('./routes/role'));
 app.use('/api/specialties', require('./routes/specialty'));
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/medicalRec', require('./routes/medicalRec'));
+app.use('/api/record', require('./routes/record'));
 
 app.listen(port, () => {
     console.log('listening on port', port)
