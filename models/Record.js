@@ -5,6 +5,10 @@ const RecordSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    dni_patient: {
+        type: Number,
+        required: true
+    },
     dni_medic: {
         type: Number,
         required: true

@@ -31,3 +31,21 @@ exports.getRecordByHistory = async (req, res) => {
         res.status(500).send('Error');
     }
 }
+
+exports.getRecordByDniPatient = async (req, res) => {
+
+    try {
+        let record = await Record.find({dni_patient: req.params.dni_patient});
+
+        if(!record) {
+            res.status(404).json({ msg: 'Records does not exist' })
+        }
+       
+        res.json(record);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error');
+    }
+}
+

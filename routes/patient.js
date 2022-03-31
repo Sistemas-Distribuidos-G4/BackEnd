@@ -6,6 +6,7 @@ const patientController = require('../controllers/patientController');
 // api/patients
 router.get('/', patientController.getPatients);
 router.put('/:id', patientController.updatePatient);
+router.put('/dni/:dni', patientController.updatePatientByDni);
 // router.put('/:id', patientController.traupdPatient);
 router.post('/', patientController.createPatient);
 router.get('/', patientController.getPatients);
