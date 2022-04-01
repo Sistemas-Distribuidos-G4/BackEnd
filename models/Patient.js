@@ -21,10 +21,10 @@ const PatientSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    /*num_history: {
+    num_history: {
         type: Number,
         required: true
-    },*/
+    },
     phone: {
         type: [Number],
         required: true
