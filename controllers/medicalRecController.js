@@ -15,6 +15,20 @@ exports.createMedicalRec = async (req, res) => {
     }
 } 
 
+exports.getMedicalRec = async (req, res) => {
+
+    try {
+
+        const medicalRec = await MedicalRec.find();
+        res.json(medicalRec)
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error');
+    }
+
+}
+
 exports.getMedicalRecByDni = async (req, res) => {
 
     try {

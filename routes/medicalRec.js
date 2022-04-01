@@ -6,5 +6,6 @@ const medicalRecController = require('../controllers/medicalRecController');
 // api/medicalRec
 router.put('/dni/:dni_patient', medicalRecController.updateMedicalRec);
 router.post('/', medicalRecController.createMedicalRec);
+router.get('/', medicalRecController.getMedicalRec);
 router.get('/dni/:dni_patient', medicalRecController.getMedicalRecByDni);
 module.exports = router; 

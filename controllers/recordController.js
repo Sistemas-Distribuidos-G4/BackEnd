@@ -15,6 +15,20 @@ exports.createRecord = async (req, res) => {
     }
 }
 
+exports.getRecord = async (req, res) => {
+
+    try {
+
+        const record = await Record.find();
+        res.json(record)
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error');
+    }
+
+}
+
 exports.getRecordByHistory = async (req, res) => {
 
     try {
