@@ -167,7 +167,7 @@ exports.PatientsProject = async (req, res) => {
 exports.updatePatient = async (req, res) => {
 
     try {
-        const { dni, name, lastname_p, lastname_m, email, num_history, phone, birthday, ubigeo, status, created_date, updated_date } = req.body;
+        const { dni, name, lastname_p, lastname_m, email, /*num_history,*/ phone, birthday, ubigeo, status, created_date, updated_date } = req.body;
         let patient = await Patient.findById(req.params.id);
 
         if(!patient) {
@@ -179,7 +179,7 @@ exports.updatePatient = async (req, res) => {
         patient.lastname_p = lastname_p;
         patient.lastname_m = lastname_m;
         patient.email = email;
-        patient.num_history = num_history;
+        //patient.num_history = num_history;
         patient.phone = phone;
         patient.birthday = birthday;
         patient.ubigeo = ubigeo;
@@ -199,7 +199,7 @@ exports.updatePatient = async (req, res) => {
 exports.updatePatientByDni = async (req, res) => {
 
     try {
-        const { dni, name, lastname_p, lastname_m, email, num_history, phone, birthday, ubigeo, status, created_date, updated_date } = req.body;
+        const { dni, name, lastname_p, lastname_m, email, /*num_history,*/ phone, birthday, ubigeo, status, created_date, updated_date } = req.body;
         let patient = await Patient.findOne({dni: req.params.dni});
 
         if(!patient) {
@@ -211,7 +211,7 @@ exports.updatePatientByDni = async (req, res) => {
         patient.lastname_p = lastname_p;
         patient.lastname_m = lastname_m;
         patient.email = email;
-        patient.num_history = num_history;
+        //patient.num_history = num_history;
         patient.phone = phone;
         patient.birthday = birthday;
         patient.ubigeo = ubigeo;
