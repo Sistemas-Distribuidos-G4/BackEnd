@@ -36,7 +36,7 @@ exports.getUsers = async (req, res) => {
 exports.getUsersBySpecialty = async (req, res) => {
 
     try {
-        let user = await User.find({specialty: req.params.specialty});
+        let user = await User.find({specialty: {$elemMatch: {_id:req.params.specialty}}});
 
         if(!user) {
             res.status(404).json({ msg: 'Users does not exist' })
