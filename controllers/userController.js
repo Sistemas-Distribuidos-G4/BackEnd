@@ -32,6 +32,25 @@ exports.getUsers = async (req, res) => {
         res.status(500).send('Error');
     }
 }
+
+exports.getUsersBySpecialty = async (req, res) => {
+
+    try {
+        let user = await User.find({specialty: req.params.specialty});
+
+        if(!user) {
+            res.status(404).json({ msg: 'Users does not exist' })
+        }
+       
+        res.json(user);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error');
+    }
+}
+
+
 //user  agregate project
 exports.UsersProject = async (req, res) => {
 

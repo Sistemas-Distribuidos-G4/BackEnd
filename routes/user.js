@@ -9,6 +9,7 @@ router.get('/', userController.getUsers);
 router.get('/userslookuproles', userController.UsersLookupRoles);
 router.get('/userslookupspecialties', userController.UsersLookupSpecialties);
 router.get('/usersproject', userController.UsersProject);
+router.get('/specialty/:specialty', userController.getUsersBySpecialty);
 router.put('/:id', userController.updateUser);
 router.get('/:id', userController.getUser);
 router.get('/dni/:dni', userController.getUserByDni);
