@@ -6,7 +6,7 @@ exports.createRecord = async (req, res) => {
         let record;
         // Record creation
         record = new Record(req.body);
-        await Record.save();
+        await record.save();
         res.send(record);
         
     } catch (error) {
