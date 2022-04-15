@@ -7,6 +7,10 @@ const UserSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    gender: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required: true

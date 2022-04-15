@@ -130,7 +130,7 @@ exports.UsersLookupSpecialties = async (req, res) => {
 exports.updateUser = async (req, res) => {
 
     try {
-        const { dni, username, password, name, lastname_p, lastname_m, email, phone, specialty, role , status, created_date, updated_date } = req.body;
+        const { dni, gender, username, password, name, lastname_p, lastname_m, email, phone, specialty, role , status, created_date, updated_date } = req.body;
         let user = await User.findById(req.params.id);
 
         if(!user) {
@@ -138,6 +138,7 @@ exports.updateUser = async (req, res) => {
         }
 
         user.dni = dni;
+        user.dni = gender;
         user.username = username;
         user.password = await User.encryptPassword(password);
         user.name = name;
@@ -152,6 +153,41 @@ exports.updateUser = async (req, res) => {
         user.updated_date = updated_date;
 
         user = await User.findOneAndUpdate({ _id: req.params.id },user, { new: true} )
+        res.json(user);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error');
+    }
+}
+
+
+exports.updateUserByDni = async (req, res) => {
+
+    try {
+        const { dni, gender, username, password, name, lastname_p, lastname_m, email, phone, specialty, role , status, created_date, updated_date } = req.body;
+        let user = await User.findOne({dni: req.params.dni});
+
+        if(!user) {
+            res.status(404).json({ msg: 'User does not exist' })
+        }
+
+        user.dni = dni;
+        user.dni = gender;
+        user.username = username;
+        user.password = await User.encryptPassword(password);
+        user.name = name;
+        user.lastname_p = lastname_p;
+        user.lastname_m = lastname_m;
+        user.email = email;
+        user.phone = phone;
+        user.specialty = specialty;
+        user.role = role;
+        user.status = status;
+        user.created_date = created_date;
+        user.updated_date = updated_date;
+
+        user = await User.findOneAndUpdate({ dni: req.params.dni },user, { new: true} )
         res.json(user);
         
     } catch (error) {
