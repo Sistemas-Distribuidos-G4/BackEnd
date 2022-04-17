@@ -29,5 +29,5 @@ app.use('/api/medicalRec', require('./routes/medicalRec'));
 app.use('/api/record', require('./routes/record'));
 
 app.listen(port, () => {
-    console.log('listening on port', port)
+    console.log('listening on port: ', port)
 })
